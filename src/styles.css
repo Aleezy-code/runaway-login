@@ -206,3 +206,20 @@
     transition: none;
   }
 }
+
+/* Runaway button states: feral shimmer while dodging, calm once caught. */
+.cta-runaway[data-settled="false"] {
+  filter: saturate(1.15);
+}
+
+.cta-runaway[data-settled="true"] {
+  box-shadow: var(--glow-primary), 0 0 0 6px oklch(0.84 0.155 168 / 0.12);
+}
+
+.cta-runaway[data-caught="true"] {
+  transform: scale(1.03) !important;
+}
+
+.dock-track[data-settled="true"] {
+  border-color: oklch(0.84 0.155 168 / 0.45);
+}
