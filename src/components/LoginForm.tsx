@@ -26,7 +26,7 @@ export function LoginForm() {
   const [focused, setFocused] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [soundOn, setSoundOn] = useState(true);
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const [errors, setErrors] = useState<{ email?: string | undefined; password?: string | undefined }>({});
 
   const emailOk = emailSchema.safeParse(email).success;
   const passwordOk = passwordSchema.safeParse(password).success;

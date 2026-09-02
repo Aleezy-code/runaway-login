@@ -62,10 +62,10 @@ export function Field({
   label: string;
   active: boolean;
   valid: boolean;
-  error?: string;
+  error?: string | undefined;
   icon: ReactNode;
-  trailing?: ReactNode;
-  aside?: ReactNode;
+  trailing?: ReactNode | undefined;
+  aside?: ReactNode | undefined;
   children: ReactNode;
 }) {
   return (
