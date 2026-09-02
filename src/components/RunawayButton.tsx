@@ -119,11 +119,13 @@ export function RunawayButton({ filled, total, settled, busy, soundOn, label, bu
     [evasion, settled, busy, pinned, soundOn],
   );
 
-  // Fine pointers: continuous chase.
+  // Mouse/pen: continuous chase. Touch is handled on pointerdown instead.
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!window.matchMedia("(pointer: fine)").matches) return;
-    const onMove = (e: PointerEvent) => dodge(e.clientX, e.clientY);
+    const onMove = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return;
+      dodge(e.clientX, e.clientY);
+    };
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
   }, [dodge]);
